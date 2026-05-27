@@ -1,0 +1,17 @@
+.footer {
+  margin-top: auto;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.siteInfo {
+  text-align: center;
+  padding: 20px 30px 30px;
+  font-size: 13px;
+  line-height: 21px;
+  color: var(--color-text-muted);
+}
+
+.copyright {
+  margin: 0;
+}

@@ -1,0 +1,75 @@
+import { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { mainNav } from '../data/navigation'
+import { assetUrl } from '../lib/assets'
+import styles from './Header.module.css'
+
+const HEADER_IMAGE = assetUrl('/images/header-banner.png')
+
+export function Header() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+
+  const isActive = (path: string) =>
+    path === '/' ? location.pathname === '/' : location.pathname.startsWith(path)
+
+  return (
+    <header className={styles.header} role="banner">
+      <img
+        src={HEADER_IMAGE}
+        alt="Interactive Intelligent Systems Laboratory"
+        className={styles.banner}
+      />
+
+      <div className={styles.topHeader}>
+        <Link to="/" className={styles.siteTitle} onClick={() => setMenuOpen(false)}>
+          <h1>
+            Interactive Intelligent Systems
+            <br />
+            Laboratory
+          </h1>
+        </Link>
+        <p className={styles.siteDescription}>The University of Tokyo</p>
+      </div>
+
+      <div className={styles.stickyBar}>
+        <div className={styles.stickyInner}>
+          <Link to="/" className={styles.navSiteTitle} onClick={() => setMenuOpen(false)}>
+            IIS Lab
+          </Link>
+
+          <button
+            type="button"
+            className={`${styles.menuBtn} ${menuOpen ? styles.menuBtnOpen : ''}`}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+
+          <nav
+            className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}
+            aria-label="Main navigation"
+          >
+            <ul className={styles.menu}>
+              {mainNav.map((item) => (
+                <li key={item.path}>
+                  <Link
+                    to={item.path}
+                    className={isActive(item.path) ? styles.navActive : undefined}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+  )
+}

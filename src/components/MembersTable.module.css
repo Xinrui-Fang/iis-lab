@@ -1,0 +1,117 @@
+.wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 0 0 1rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: auto;
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+}
+
+.table thead th {
+  background-color: #d9edf7;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--font-size-body);
+  text-align: left;
+  vertical-align: middle;
+  padding: 0.5rem;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.table tbody td {
+  padding: 0.5rem;
+  vertical-align: top;
+  text-align: left;
+  border-top: 1px solid #ddd;
+}
+
+.rowOdd td {
+  background-color: #fff;
+}
+
+.rowEven td {
+  background-color: #f9f9f9;
+}
+
+.table tbody tr.rowOdd:hover td,
+.table tbody tr.rowEven:hover td {
+  background-color: #f3f3f3;
+}
+
+.sectionRow td {
+  background-color: #fff !important;
+  font-weight: 700;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.nameCell a {
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.nameCell a:hover {
+  color: var(--color-accent-hover);
+}
+
+.affiliationCell {
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+@media (max-width: 767px) {
+  .table thead {
+    display: none;
+  }
+
+  .table tbody tr:not(.sectionRow) {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    background: #fff;
+  }
+
+  .table tbody tr:not(.sectionRow) td {
+    display: block;
+    border: none;
+    padding: 0.35rem 0.75rem;
+    background: transparent !important;
+  }
+
+  .table tbody tr:not(.sectionRow) td::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.15rem;
+  }
+
+  .table tbody tr:not(.sectionRow) td:first-child {
+    padding-top: 0.75rem;
+  }
+
+  .table tbody tr:not(.sectionRow) td:last-child {
+    padding-bottom: 0.75rem;
+  }
+
+  .sectionRow td {
+    display: block;
+    border: none;
+    padding: 1rem 0 0.5rem;
+  }
+}

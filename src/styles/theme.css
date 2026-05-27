@@ -1,0 +1,25 @@
+/* Edge theme tokens — matches https://iis-lab.org/ (WordPress Edge theme) */
+:root {
+  --color-accent: #c69f70;
+  --color-accent-hover: #b08d5f;
+  --color-text: #333333;
+  --color-text-muted: #545454;
+  --color-text-light: #999999;
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border-strong: #e4e4e4;
+  --color-bg: #ffffff;
+  --color-bg-subtle: #fafafa;
+  --color-selection: #c69f70;
+
+  --font-body: 'Lato', 'Noto Sans JP', sans-serif;
+  --font-heading: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+
+  --max-width: 1200px;
+  --line-height-body: 1.8;
+  --font-size-body: 16px;
+  --font-size-nav: 14px;
+  --font-size-site-title: 40px;
+  --font-size-page-title: 34px;
+  --font-size-h2: 26px;
+  --font-size-h3: 24px;
+}
