@@ -1,4 +1,12 @@
 import type { ReactNode } from 'react'
+import { assetUrl } from '../lib/assets'
+
+function formatLinkLabel(label: string): string {
+  if (label === 'paper' || label === 'video') {
+    return `(${label})`
+  }
+  return label
+}
 
 /** Inline **bold**, _italic_, [text](url) */
 export function PublicationText({ text }: { text: string }) {
@@ -21,8 +29,13 @@ export function PublicationText({ text }: { text: string }) {
       const linkMatch = token.match(/\[([^\]]+)\]\(([^)]+)\)/)
       if (linkMatch) {
         parts.push(
-          <a key={key++} href={linkMatch[2]} target="_blank" rel="noopener noreferrer">
-            {linkMatch[1]}
+          <a
+            key={key++}
+            href={assetUrl(linkMatch[2])}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {formatLinkLabel(linkMatch[1])}
           </a>,
         )
       }

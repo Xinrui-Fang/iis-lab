@@ -14,7 +14,7 @@ function BlockRenderer({ block }: { block: PublicationBlock }) {
   if (block.type === 'year-list') {
     return (
       <>
-        {block.year && <h3 className={styles.yearLabel}>{block.year}</h3>}
+        {block.year && <h5 className={styles.yearLabel}>{block.year}</h5>}
         <ul className={styles.list}>
           {block.items.map((item) => (
             <li key={item.slice(0, 80)}>
@@ -49,7 +49,7 @@ export function PublicationsList({ sections }: PublicationsListProps) {
     <>
       {sections.map((section) => (
         <section key={section.title} className={styles.section} id={slugify(section.title)}>
-          <h2 className={styles.sectionTitle}>{section.title}</h2>
+          <h2>{section.title}</h2>
           {section.blocks.map((block, index) => (
             <BlockRenderer key={`${section.title}-${index}`} block={block} />
           ))}
